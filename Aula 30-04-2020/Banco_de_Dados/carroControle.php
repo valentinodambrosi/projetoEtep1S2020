@@ -1,21 +1,35 @@
 <?php
-
 include_once "carro.php";
+include_once "carroDao.php";
 
 
-$carro = new Carro('1','GOL', 'XXX-0000');
-$carro->setId('1');
-$carro->setModelo('CR-V');
-$carro->setPlaca('XYZ-2398');
+$modelo = $_POST["modelo"];
+$placa = $_POST["placa"];
+$id = $_POST["id"];
 
 
-echo $carro->getId();
-echo $carro->getModelo();
-echo $carro->getPlaca();
+$carro = new Carro($id,$modelo,$placa);
+$carroDao = new CarroDao();
 
-echo "<br>";
 
-$carro2 = new Carro('1','GOL', 'XXX-0000');
-$carro2->toString();
+
+//$carroDao->apagarCarro($carro);
+//$carroDao->atualizaCarro($carro);
+//$carroDao->inserirCarro($carro);
+//$carroDao->listarCarros();
+
+
+$carroDao->getCarro($id);
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
